@@ -1,0 +1,435 @@
+
+#game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+html, body, #game-container {
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+#game-container {
+    display: flex;
+}
+
+.body,
+.wrapper {
+    /* Break the flow */
+    position: absolute;
+    top: 0px;
+
+    /* Give them all the available space */
+    width: 100%;
+    height: 100%;
+
+    /* Remove the margins if any */
+    margin: 0;
+
+    /* Allow them to scroll down the document */
+    overflow-y: hidden;
+}
+
+.body {
+    /* Sending body at the bottom of the stack */
+    z-index: 1;
+}
+
+.wrapper {
+    /* Making the wrapper stack above the body */
+    z-index: 2;
+}
+
+.MuiFormControl-root.game-select {
+    min-width: 8rem;
+    margin: 0;
+    font-size: 150%;
+}
+
+.MuiFormControl-root.game-select .MuiInputBase-root {
+    font-size: inherit;
+}
+.hurricane-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes hurricane-move {
+    0% {
+        transform: translate(-100%, -100%);
+    }
+    25% {
+        transform: translate(25vw, 25vh);
+    }
+    50% {
+        transform: translate(62.5vw, 75vh);
+    }
+    75% {
+        transform: translate(100vw, 100vh);
+    }
+    100% {
+        transform: translate(100vw, 100vh);
+    }
+}
+
+.MuiTab-root.Mui-disabled {
+    display: none;
+}
+.hurricane-won-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-100%, -100%);
+    animation: hurricane-move 4s linear;
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
+}
+@keyframes hurricane-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.hurricane-won {
+    width: 20vmin;
+    height: 20vmin;
+    animation: hurricane-rotate 0.75s linear;
+    animation-iteration-count: infinite;
+}
+
+.hurricane-settings {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    transition: max-height 1s linear;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.hurricane-settings-gamewon {
+    max-height: 0px;
+    overflow: hidden;
+}
+.hurricane-settings .MuiAppBar-root {
+    flex: none;
+}
+.hurricane-settings .tab-panel {
+    flex: 1 0 auto;
+}
+
+.hurricane-points-header {
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.direction-selector {
+    width: 6rem;
+    height: 6rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 50%;
+    background: #99ff33;
+    border: 4px darkblue solid;
+    box-sizing: border-box;
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+.direction-button {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: rgb(255, 150, 150);
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+.direction-button:focus {
+    outline: none;
+}
+.direction-button:hover {
+    background-color: rgb(255, 100, 100);
+}
+.direction-button-active, .direction-button-active:hover {
+    background-color: rgb(255, 0, 0);
+}
+.direction-button-North {
+    top: 0;
+    left: 50%;
+}
+.direction-button-Northeast {
+    top: 15%;
+    left: 87%;
+}
+.direction-button-East {
+    top: 50%;
+    left: 100%;
+}
+.direction-button-Southeast {
+    top: 85%;
+    left: 87%;
+}
+.direction-button-South {
+    top: 100%;
+    left: 50%;
+}
+.direction-button-Southwest {
+    left: 13%;
+    top: 85%;
+}
+.direction-button-West {
+    top: 50%;
+    left: 0;
+}
+.direction-button-Northwest {
+    top: 15%;
+    left: 13%;
+}
+.direction-abbrev {
+    background-color: aqua;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px darkblue solid;
+}
+.wind-direction-compound {
+    display: inline-block;
+    text-align: left;
+}
+.tab-panel {
+    overflow: auto;
+}
+.atmospheric-layers {
+    border: 4px black solid;
+    background-color: #99ff33;
+    display: inline-flex;
+    flex-direction: column;
+}
+.atmospheric-layer {
+    display: inline-flex;
+    align-items: center;
+}
+.layer-name {
+    font-weight: bold;
+}
+.layer-bracket {
+    font-size: 3rem;
+    line-height: 1;
+    margin: 1rem 0;
+}
+.latitude-chooser {
+    display: inline-block;
+    background-color: darkblue;
+    border: 4px darkblue solid;
+    position: relative;
+    font-size: 1.25rem;
+}
+.latitude-chooser img {
+    height: 20em;
+    width: auto;
+}
+.latitude-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.latitude-line {
+    position: relative;
+    width: 100%;
+    font-weight: bold;
+    margin: 1em 0;
+    text-align: left;
+}
+.latitude-line:before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    background-color: #aaa;
+    height: 0.1em;
+    content: '';
+    display: block;
+    z-index: 0;
+}
+.latitude-line-label {
+    background-color: #aaa;
+    position: relative;
+    z-index: 1;
+    margin-left: 1rem;
+    user-select: none;
+    padding: 0 0.2em;
+}
+.latitude-selector {
+    background-color: rgba(0, 255, 255, 0.5);
+    position: absolute;
+    font-weight: bold;
+    top: 1.75em;
+    right: 1.75em;
+    transform: translateY(0px);
+    transition: transform 500ms linear;
+    z-index: 2;
+    text-align: center;
+}
+.latitude-selector span {
+    font-size: 2em;
+}
+.latitude-controls {
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+}
+.temperature-background {
+    width: 20em;
+    height: 20em;
+    overflow: hidden;
+    position: relative;
+}
+.temperature-mover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    transition: transform 0.5s linear;
+    background: linear-gradient(#ff3300, #ffff00, #0099ff, #0000ff);
+}
+.latitude-chooser .wave-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    z-index: 3;
+}
+.thermometer-container {
+    width: 3em;
+    position: absolute;
+    right: 1em;
+    z-index: 4;
+    top: 1em;
+    height: calc(100% - 2em);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.thermometer-fill {
+    width: 40%;
+    flex: 1 1 auto;
+    border: 4px black solid;
+    border-bottom: none;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 1;
+    background: darkgray;
+}
+.thermometer-fill div {
+    width: 100%;
+    height: 50%;
+    min-height: 5px;
+    transition: height 0.5s linear;
+    background: red;
+}
+.thermometer-bulb {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    z-index: 0;
+    transform: translateY(-10%);
+}
+/*
+.thermometer-bulb:after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 50%;
+    background: red;
+    content: '';
+    border: 4px black solid;
+    border-top: none;
+    border-bottom: none;
+    display: block;
+}
+*/
+.thermometer-bulb:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    content: '';
+    display: block;
+    background: red;
+    border: 4px black solid;
+}
+.current-temperature {
+    font-size: 2em;
+    padding: 1em;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+}
+
+.hurricane-level-buttons {
+    display: flex;
+    flex-direction: column;
+}
+.hurricane-level-buttons .MuiButton-root {
+    margin: 0.5rem;
+}
+
+.tab-panel .MuiBox-root {
+    padding: 0;
+    text-align: center;
+}
+
+@media screen and (max-width: 530px) {
+    .latitude-chooser {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .latitude-chooser {
+        font-size: 0.75rem;
+    }
+}
+
+.wind-direction-container {
+}
