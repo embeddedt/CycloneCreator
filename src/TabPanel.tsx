@@ -5,10 +5,11 @@ interface TabPanelProps {
     children?: React.ReactNode;
     index: any;
     value: any;
-  }
+    [k: string]: any;
+}
   
 function TabPanel(props: TabPanelProps) {
-    const { children, value, index, ...other } = props;
+    const { children, value, index, className, ...other } = props;
 
     return (
         <Typography
@@ -16,7 +17,7 @@ function TabPanel(props: TabPanelProps) {
         role="tabpanel"
         hidden={value !== index}
         id={`simple-tabpanel-${index}`}
-        className="tab-panel"
+        className={"tab-panel " + className}
         aria-labelledby={`simple-tab-${index}`}
         {...other}
         >

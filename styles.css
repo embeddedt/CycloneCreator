@@ -133,7 +133,8 @@ html, body, #game-container {
     flex: none;
 }
 .hurricane-settings .tab-panel {
-    flex: 1 0 auto;
+    flex: 1 1 auto;
+    min-height: 0;
 }
 
 .hurricane-points-header {
@@ -244,17 +245,33 @@ html, body, #game-container {
     line-height: 1;
     margin: 1rem 0;
 }
+
+.latitude-tab-panel .MuiBox-root {
+    text-align: center;
+}
 .latitude-chooser {
-    display: inline-block;
+    display: inline-flex;
     background-color: darkblue;
     border: 4px darkblue solid;
     position: relative;
+    margin: 0 auto;
     font-size: 1.25rem;
+    flex-direction: column;
+    max-height: 100%;
 }
-.latitude-chooser img {
+.latitude-renderer img {
     height: 20em;
     width: auto;
 }
+
+.latitude-renderer {
+    position: relative;
+    flex: 0 1 20em;
+    overflow: auto;
+    min-height: 0;
+}
+
+
 .latitude-lines {
     position: absolute;
     top: 0;
@@ -296,7 +313,7 @@ html, body, #game-container {
     top: 1.75em;
     right: 1.75em;
     transform: translateY(0px);
-    transition: transform 500ms linear;
+    /*transition: transform 500ms linear;*/
     z-index: 2;
     text-align: center;
 }
@@ -307,6 +324,7 @@ html, body, #game-container {
     background-color: lightblue;
     display: flex;
     flex-direction: column;
+    flex: 0 0 auto;
 }
 .temperature-background {
     width: 20em;
@@ -417,6 +435,7 @@ html, body, #game-container {
 .tab-panel .MuiBox-root {
     padding: 0;
     text-align: center;
+    height: 100%;
 }
 
 @media screen and (max-width: 530px) {
@@ -432,4 +451,14 @@ html, body, #game-container {
 }
 
 .wind-direction-container {
+}
+
+.hurricane-points-number {
+    font-size: 4rem;
+}
+
+@media screen and (max-height: 720px) {
+    .hurricane-points-number {
+        font-size: 2rem;
+    }
 }

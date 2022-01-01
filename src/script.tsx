@@ -105,9 +105,9 @@ window.onload = function() {
                 </div>}
                 <span className="hurricane-points-header">{hasGameWon ? "YOU MADE A HURRICANE!" : "YOUR POINTS:"}</span>
                 <AnimatedNumber component="span" value={Math.round(points)} stepPrecision={0}
+                    className="hurricane-points-number"
                     style={{
                         transition: '0.8s ease-out',
-                        fontSize: '4rem',
                         zIndex: 1,
                         position: 'relative',
                         color: hasGameWon ? 'green' : 'black',
@@ -150,7 +150,7 @@ window.onload = function() {
                             </AtmosphericLayer>
                         </div>
                     </TabPanel>
-                    <TabPanel value={currentTab} index={2}>
+                    <TabPanel value={currentTab} index={2} className="latitude-tab-panel">
                         <LatitudeChooser value={windInfo.current.latitudeRange} onChange={changeProperty.bind(this, "latitudeRange")}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={3}>
@@ -165,7 +165,7 @@ window.onload = function() {
                             equator and over very warm waters.
                             <p></p>
                             Have a look at the different tabs and adjust the weather
-                            condtions to make them perfect for creating a hurricane.
+                            conditions to make them perfect for creating a hurricane.
                             <p></p>
                             Your goal is to reach 100 points. Good luck!
                         </span>

@@ -26,7 +26,7 @@ const SeaTemperatureSelector = (props) => {
             <LatitudeLine style={{visibility: 'hidden'}}>30 N</LatitudeLine>
             <LatitudeLine style={{visibility: 'hidden'}}>20 N</LatitudeLine>
             <LatitudeLine style={{visibility: 'hidden'}}>10 N</LatitudeLine>
-            <LatitudeLine>50 metres</LatitudeLine>
+            <LatitudeLine style={{visibility: 'hidden'}}>50 metres</LatitudeLine>
         </div>
         <div className="latitude-controls">
             <Button disabled={props.value >= 26.5} onClick={onClick.bind(void 0, 0.5)}>+0.5 &deg;C</Button>
